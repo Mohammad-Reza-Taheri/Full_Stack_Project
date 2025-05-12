@@ -28,6 +28,22 @@ router.post('/',(req:Request,res:Response)=>{
   res.status(201).json(product);
 })
 
+
+router.delete('/:id',(req:Request,res:any)=>{
+  // console.log('in delete api')
+  // const filteredProducts=products.filter((item)=>item.id!==req.params.id)
+  ///////////////////////////
+  const product=products.find(item=>item.id === req.params.id)
+  if(!product) return res.status(404).send('item does not found')
+
+    const index=products.indexOf(product);
+    products.splice(index,1)
+    res.json(product)
+  ///////////////////////////
+  // res.send('delete api works')
+
+})
+
 export default router;
 ////////////////////////////////////////////////
 

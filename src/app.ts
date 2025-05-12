@@ -6,6 +6,8 @@ import 'dotenv/config'
 
 
 const app = express();
+
+//the PORT must be declared in .env
 const PORT=5000;
 
 //Middlewares
