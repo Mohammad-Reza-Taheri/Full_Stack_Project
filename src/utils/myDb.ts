@@ -35,19 +35,39 @@ const connectDB = async () => {
         //     database: 'my_db'       // نام دیتابیس
         // });
 
+        // const connection = await mysql.createConnection({
+        //     host:process.env.HOST ,      // آدرس سرور دیتابیس
+        //     user: process.env.USER,           // نام کاربری
+        //     password: process.env.PASSWORD, // رمز عبور
+        //     database: process.env.DATABASE       // نام دیتابیس
+        // });
+
+        //with publick key
+        //   const connection = await mysql.createConnection({
+        //     host:'annapurna.liara.cloud' ,      // آدرس سرور دیتابیس
+        //     user: 'root',           // نام کاربری
+        //     password: 'fBs7FEyb7gd7eoQOBFMA6FEZ', // رمز عبور
+        //     database: 'serene_shaw',       // نام دیتابیس
+        //     port:34111
+        // });
+
+
+        //private key
         const connection = await mysql.createConnection({
-            host:process.env.HOST ,      // آدرس سرور دیتابیس
-            user: process.env.USER,           // نام کاربری
-            password: process.env.PASSWORD, // رمز عبور
-            database: process.env.DATABASE       // نام دیتابیس
-        });
+                host:'db-master' ,      // آدرس سرور دیتابیس
+                user: 'root',           // نام کاربری
+                password: 'fBs7FEyb7gd7eoQOBFMA6FEZ', // رمز عبور
+                database: 'serene_shaw',       // نام دیتابیس
+                port:3306
+            });
 
-        console.log('successfully connected. ID:', connection.threadId);
-        return connection;
-    } catch (err) {
-        console.error('خطا در اتصال به دیتابیس:', err);
-        throw err;
-    }
-};
 
-export default connectDB;
+            console.log('successfully connected. ID:', connection.threadId);
+            return connection;
+        } catch (err) {
+            console.error('خطا در اتصال به دیتابیس:', err);
+            throw err;
+        }
+    };
+
+    export default connectDB;
