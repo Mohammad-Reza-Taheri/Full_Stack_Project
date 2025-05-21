@@ -14,7 +14,7 @@ import 'dotenv/config'
 const app = express();
 
 //the PORT must be declared in .env
-const PORT = 5000;
+const PORT = 3000;
 
 //Middlewares
 app.use(cors());
@@ -22,9 +22,10 @@ app.use(bodyParser.json());
 
 
 //Routes
-// app.use('/api/categories', categoryRoutes)
+//  app.use('/api/categories', categoryRoutes)
+//  app.use('/api/', cardRoutes)
+// app.use('/api/products', productRoutes)
 app.use('/api/categories', categoriesRoutes_postger)
-app.use('/api/products', productRoutes)
 app.use('/api/', cardRoutes_postger)
 
 //Error handling
