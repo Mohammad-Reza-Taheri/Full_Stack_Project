@@ -18,7 +18,7 @@ router.get('/', async (req: Request, res: Response) => {
         const categories: ICategory[] = result.rows; // ✅ Correct way to extract rows
 
         // const [categories] =await pool.query<ICategory[]>('SELECT * FROM category_table');
-          res.json(categories);
+        res.json(categories);
     } catch (err: any) {
         console.log(err)
         res.status(500).send('failed to fetching data in routes/categories.ts')
@@ -28,7 +28,7 @@ router.get('/', async (req: Request, res: Response) => {
 router.post('/', async (req: Request, res: Response) => {
     try {
         // console.log(req.body)
-console.log("cat name is : "+req.body.cat_name)
+        console.log("cat name is : " + req.body.cat_name)
         await pool.query('INSERT INTO category_table (cat_name, createdAt) VALUES ($1, NOW());', [req.body.cat_name]);
         res.json('category added')
 

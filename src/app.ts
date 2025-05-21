@@ -2,10 +2,10 @@ import express, { NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import productRoutes from './routes/products'
-// import cardRoutes from './routes/cards'
-// import categoryRoutes from './routes/categories'
-import cardRoutes_postger from './routes/cards_postger'
-import categoriesRoutes_postger from './routes/categories_postger'
+import cardRoutes from './routes/cards'
+import categoryRoutes from './routes/categories'
+// import cardRoutes_postger from './routes/cards_postger'
+// import categoriesRoutes_postger from './routes/categories_postger'
 import 'dotenv/config'
 
 // import { ICard } from './types/card'
@@ -21,12 +21,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+
 //Routes
-//  app.use('/api/categories', categoryRoutes)
-//  app.use('/api/', cardRoutes)
+ app.use('/api/categories', categoryRoutes)
+ app.use('/api/', cardRoutes)
 // app.use('/api/products', productRoutes)
-app.use('/api/categories', categoriesRoutes_postger)
-app.use('/api/', cardRoutes_postger)
+// app.use('/api/categories', categoriesRoutes_postger)
+// app.use('/api/', cardRoutes_postger)
 
 //Error handling
 // app.use((err:any,req:Request,res:Response,next:NextFunction)=>{

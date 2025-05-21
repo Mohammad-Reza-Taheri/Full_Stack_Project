@@ -23,15 +23,23 @@
 ///////////////////////////////////////////
 
 import mysql from 'mysql2/promise';
+import 'dotenv/config'
 
 // تنظیمات اتصال
 const connectDB = async () => {
     try {
+        // const connection = await mysql.createConnection({
+        //     host: 'localhost',      // آدرس سرور دیتابیس
+        //     user: 'root',           // نام کاربری
+        //     password: '@Hossin2017', // رمز عبور
+        //     database: 'my_db'       // نام دیتابیس
+        // });
+
         const connection = await mysql.createConnection({
-            host: 'localhost',      // آدرس سرور دیتابیس
-            user: 'root',           // نام کاربری
-            password: '@Hossin2017', // رمز عبور
-            database: 'my_db'       // نام دیتابیس
+            host:process.env.HOST ,      // آدرس سرور دیتابیس
+            user: process.env.USER,           // نام کاربری
+            password: process.env.PASSWORD, // رمز عبور
+            database: process.env.DATABASE       // نام دیتابیس
         });
 
         console.log('successfully connected. ID:', connection.threadId);
